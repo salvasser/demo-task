@@ -1,0 +1,6 @@
+Dockerfile
+LICENSE
+docker-compose.yml
+./conf
+.env*
+
