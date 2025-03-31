@@ -1,6 +1,6 @@
-Dockerfile
-LICENSE
+./symfony-app/Dockerfile
+./symfony-app/LICENSE
 docker-compose.yml
-./conf
-.env*
+./nginx
+./symfony-app/.env*
 

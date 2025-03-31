@@ -18,14 +18,14 @@ RUN echo http://mirror.yandex.ru/mirrors/alpine/latest-stable/main > /etc/apk/re
     php /tmp/composer-installer --install-dir=/usr/local/bin --filename=composer && \
     rm -f /tmp/composer-installer
 
-FROM php:8.4-fpm-alpine AS prod
+FROM php:8.4-fpm-alpine AS final
 
 WORKDIR /var/www/app
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 COPY --from=builder /usr/local/bin/composer /usr/local/bin/composer
-COPY . .
+COPY ./symfony-app .
 
 RUN composer install --optimize-autoloader && \
     chown -R www-data:www-data /var/www/app

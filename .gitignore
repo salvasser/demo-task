@@ -1,33 +1,33 @@
-/public/build/fonts/glyphicons-*
-/public/build/images/glyphicons-*
+./symfony-app/public/build/fonts/glyphicons-*
+./symfony-app/public/build/images/glyphicons-*
 
-.php-version
+./symfony-app/.php-version
 
 ###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
-/.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
-/var/
-/vendor/
+./symfony-app/.env.local
+./symfony-app/.env.local.php
+./symfony-app/.env.*.local
+./symfony-app/config/secrets/prod/prod.decrypt.private.php
+./symfony-app/public/bundles/
+./symfony-app/var/
+./symfony-app/vendor/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
-.phpunit.result.cache
-/phpunit.xml
+./symfony-app/.phpunit.result.cache
+./symfony-app/phpunit.xml
 ###< symfony/phpunit-bridge ###
 
 ###> symfony/asset-mapper ###
-/public/assets/
-/assets/vendor/
+./symfony-app/public/assets/
+./symfony-app/assets/vendor/
 ###< symfony/asset-mapper ###
 
 ###> phpstan/phpstan ###
-phpstan.neon
+./symfony-app/phpstan.neon
 ###< phpstan/phpstan ###
 
 ###> phpunit/phpunit ###
-/phpunit.xml
-.phpunit.result.cache
+./symfony-app/phpunit.xml
+./symfony-app/.phpunit.result.cache
 ###< phpunit/phpunit ###
