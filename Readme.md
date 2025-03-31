@@ -74,4 +74,4 @@ docker login <REGISTRY_URL>
 kubectl -n symfony port-forward svc/symfony-app 8080:80 --address=0.0.0.0
 ```
 Теперь приложение доступно по адресу:
-http://<k8s-worker-node-ip-address>:8080
+`http://<k8s-worker-node-ip-address>:8080`
