@@ -15,8 +15,7 @@ RUN echo http://mirror.yandex.ru/mirrors/alpine/latest-stable/main > /etc/apk/re
      make \
      pkgconf && \
     curl https://getcomposer.org/installer -o /tmp/composer-installer && \
-    php /tmp/composer-installer --install-dir=/usr/local/bin --filename=composer && \
-    rm -f /tmp/composer-installer
+    php /tmp/composer-installer --install-dir=/usr/local/bin --filename=composer
 
 FROM php:8.4-fpm-alpine AS final
 

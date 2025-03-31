@@ -9,7 +9,7 @@ build:
 run-local: build
 	docker-compose up --build -d
 
-run-helm:
+run-helm: build
 	helm upgrade --namespace ${NAMESPACE} --create-namespace --install ${RELEASE} ./symfony-chart
 
 stop-local:
