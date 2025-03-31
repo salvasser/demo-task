@@ -1,0 +1,38 @@
+replicaCount: 1
+
+image:
+  phpFpm:
+    repository: symfony-php-fpm
+    tag: latest
+    pullPolicy: Always
+  nginx:
+    repository: nginx
+    tag: alpine3.21
+    pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+nginx:
+  config: |
+    events {}
+
+    http {
+        server {
+            listen 80;
+            server_name localhost;
+            root /var/www/app/public;
+            index index.php;
+
+            location / {
+                try_files $uri /index.php$is_args$args;
+            }
+
+            location ~ \.php$ {
+                fastcgi_pass php:9000;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+            }
+        }
+    }

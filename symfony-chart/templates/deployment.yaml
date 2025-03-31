@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "symfony-chart.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "symfony-chart.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "symfony-chart.name" . }}
+    spec:
+      containers:
+        - name: php-fpm
+          image: "{{ .Values.image.phpFpm.repository }}:{{ .Values.image.phpFpm.tag }}"
+          imagePullPolicy: {{ .Values.image.phpFpm.pullPolicy }}
+          ports:
+            - containerPort: 9000
+          volumeMounts:
+            - name: app
+              mountPath: /var/www
+
+        - name: nginx
+          image: "{{ .Values.image.nginx.repository }}:{{ .Values.image.nginx.tag }}"
+          imagePullPolicy: {{ .Values.image.nginx.pullPolicy }}
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: app
+              mountPath: /var/www
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d
+
+      volumes:
+        - name: app
+          emptyDir: {}
+        - name: nginx-config
+          configMap:
+            name: {{ include "symfony-chart.fullname" . }}-nginx-config
