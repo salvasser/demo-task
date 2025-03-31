@@ -9,8 +9,6 @@ services:
         max-size: "20m"
     env_file:
       - ./symfony-app/.env
-    # volumes:
-    #   - .:/var/www/app
 
   nginx:
     image: nginx:alpine3.21
