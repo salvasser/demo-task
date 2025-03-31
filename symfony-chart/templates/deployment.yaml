@@ -18,9 +18,6 @@ spec:
           imagePullPolicy: {{ .Values.image.phpFpm.pullPolicy }}
           ports:
             - containerPort: 9000
-          volumeMounts:
-            - name: app
-              mountPath: /var/www
 
         - name: nginx
           image: "{{ .Values.image.nginx.repository }}:{{ .Values.image.nginx.tag }}"
@@ -28,14 +25,10 @@ spec:
           ports:
             - containerPort: 80
           volumeMounts:
-            - name: app
-              mountPath: /var/www
             - name: nginx-config
               mountPath: /etc/nginx/conf.d
 
       volumes:
-        - name: app
-          emptyDir: {}
         - name: nginx-config
           configMap:
             name: {{ include "symfony-chart.fullname" . }}-nginx-config

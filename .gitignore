@@ -31,3 +31,5 @@
 ./symfony-app/phpunit.xml
 ./symfony-app/.phpunit.result.cache
 ###< phpunit/phpunit ###
+
+symfony.tar
