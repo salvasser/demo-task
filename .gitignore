@@ -9,8 +9,8 @@
 ./symfony-app/.env.*.local
 ./symfony-app/config/secrets/prod/prod.decrypt.private.php
 ./symfony-app/public/bundles/
-./symfony-app/var/
-./symfony-app/vendor/
+/var/
+/vendor/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -20,7 +20,7 @@
 
 ###> symfony/asset-mapper ###
 ./symfony-app/public/assets/
-./symfony-app/assets/vendor/
+/assets/vendor/
 ###< symfony/asset-mapper ###
 
 ###> phpstan/phpstan ###

@@ -1,8 +1,6 @@
 services:
   php:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: symfony-php-fpm
     restart: always
     container_name: php-fpm
     logging:
@@ -26,6 +24,6 @@ services:
       - ./symfony-app:/var/www/app
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
-      - "80:80"
+      - "8080:80"
     depends_on:
       - php
