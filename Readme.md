@@ -75,3 +75,19 @@ kubectl -n symfony port-forward svc/symfony-app 8080:80 --address=0.0.0.0
 ```
 Теперь приложение доступно по адресу:
 `http://<k8s-worker-node-ip-address>:8080`
+
+---
+
+## Пояснение к параметрам чарта values.yaml
+
+| Параметр                    | Описание                                                                 |
+|-----------------------------|--------------------------------------------------------------------------|
+| `replicaCount`              | Количество pod-ов в `Deployment`                                        |
+| `image.phpFpm.repository`   | Образ PHP-FPM с Symfony-приложением                                     |
+| `image.phpFpm.tag`          | Тег Docker-образа                                                       |
+| `image.phpFpm.pullPolicy`   | Политика скачивания образа (`Always`, `IfNotPresent`, `Never`)          |
+| `image.nginx.repository`    | Базовый образ Nginx                                                     |
+| `image.nginx.tag`           | Тег Nginx-образа                                                        |
+| `service.type`              | Тип Kubernetes-сервиса (`ClusterIP`, `NodePort`, `LoadBalancer`)        |
+| `service.port`              | Порт, на котором будет доступно приложение                              |
+| `nginx.config`              | Содержимое `nginx.conf` (в формате ConfigMap → монтируется внутрь)       |
