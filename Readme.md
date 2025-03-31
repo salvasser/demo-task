@@ -33,7 +33,7 @@ make build
 ```bash
 make run-local
 ```
-Запускает Symfony с Nginx локально через docker-compose
+Запускает `Symfony` с `Nginx` локально через `docker-compose`
 
 ### Остановка локального запуска
 
@@ -43,12 +43,12 @@ make stop-local
 
 ---
 
-### Деплой в Kubernetes (namespace symfony)
+### Деплой в Kubernetes (namespace `symfony`)
 
 ```bash
 make run-helm
 ```
-Устанавливает Helm-релиз symfony-app в namespace symfony
+Устанавливает Helm-релиз symfony-app в namespace `symfony`
 
 ### Удаление Helm-релиза
 
