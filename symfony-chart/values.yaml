@@ -32,7 +32,4 @@ nginx:
             include fastcgi_params;
         }
 
-        location ~ /\.ht {
-            deny all;
-        }
     }
