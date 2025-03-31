@@ -10,7 +10,7 @@ run-helm:
 stop-local:
 	docker-compose down
 
-stop-helm
+stop-helm:
 	helm -n symfony uninstall symfony-app
 
 local-registry: build
