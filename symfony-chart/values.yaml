@@ -2,9 +2,9 @@ replicaCount: 1
 
 image:
   phpFpm:
-    repository: localhost/symfony-php-fpm
+    repository: salvasser/symfony-php-fpm
     tag: latest
-    pullPolicy: Never
+    pullPolicy: Always
   nginx:
     repository: nginx
     tag: alpine3.21
